@@ -16,5 +16,10 @@ target 'CombineDemo' do
   pod 'Alamofire', '~> 5.2.2'
   pod 'AlamofireImage', '~> 4.1'
 
+  target 'CombineDemoTests' do
+    pod 'Quick'
+    pod 'Nimble'
+  end
+
 end
 

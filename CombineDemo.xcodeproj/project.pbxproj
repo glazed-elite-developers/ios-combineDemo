@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AC3CBF4D6F9318FF0A11A47 /* Pods_CombineDemo_CombineDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952D0C599B666BBB8E86E936 /* Pods_CombineDemo_CombineDemoTests.framework */; };
 		7A4CC5CBFC1E5E4A519D62FF /* Pods_CombineDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0C9FC98545832F5E9F916D /* Pods_CombineDemo.framework */; };
+		DF5F2C9A2523946B00009398 /* CombineDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F2C992523946B00009398 /* CombineDemoTests.swift */; };
+		DF5F2CA22523961F00009398 /* SceneSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F2CA12523961F00009398 /* SceneSpec.swift */; };
 		DF7BD3EF251CFF0F0090FD4A /* MostPopularResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3EE251CFF0F0090FD4A /* MostPopularResource.swift */; };
 		DF7BD3F1251D01AB0090FD4A /* MoviesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F0251D01AB0090FD4A /* MoviesAPI.swift */; };
 		DF7BD3F3251D021D0090FD4A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F2251D021D0090FD4A /* MovieModel.swift */; };
@@ -43,9 +46,26 @@
 		DFD767E0251BBB6300C9BD34 /* RouterBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD767DF251BBB6300C9BD34 /* RouterBindable.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DF5F2C9C2523946B00009398 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFD7679A2518EEDF00C9BD34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFD767A12518EEDF00C9BD34;
+			remoteInfo = CombineDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		16DB11D8338DB709FEA50C04 /* Pods-CombineDemo-CombineDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineDemo-CombineDemoTests.release.xcconfig"; path = "Target Support Files/Pods-CombineDemo-CombineDemoTests/Pods-CombineDemo-CombineDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B613100C11C898450E65C53 /* Pods-CombineDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineDemo.release.xcconfig"; path = "Target Support Files/Pods-CombineDemo/Pods-CombineDemo.release.xcconfig"; sourceTree = "<group>"; };
 		5D0C9FC98545832F5E9F916D /* Pods_CombineDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CombineDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		762E5DDBBA258F59C2187405 /* Pods-CombineDemo-CombineDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineDemo-CombineDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-CombineDemo-CombineDemoTests/Pods-CombineDemo-CombineDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		952D0C599B666BBB8E86E936 /* Pods_CombineDemo_CombineDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CombineDemo_CombineDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF5F2C972523946B00009398 /* CombineDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CombineDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF5F2C992523946B00009398 /* CombineDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineDemoTests.swift; sourceTree = "<group>"; };
+		DF5F2C9B2523946B00009398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF5F2CA12523961F00009398 /* SceneSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneSpec.swift; sourceTree = "<group>"; };
 		DF7BD3EE251CFF0F0090FD4A /* MostPopularResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularResource.swift; sourceTree = "<group>"; };
 		DF7BD3F0251D01AB0090FD4A /* MoviesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPI.swift; sourceTree = "<group>"; };
 		DF7BD3F2251D021D0090FD4A /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
@@ -85,6 +105,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DF5F2C942523946B00009398 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AC3CBF4D6F9318FF0A11A47 /* Pods_CombineDemo_CombineDemoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFD7679F2518EEDF00C9BD34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				5D0C9FC98545832F5E9F916D /* Pods_CombineDemo.framework */,
+				952D0C599B666BBB8E86E936 /* Pods_CombineDemo_CombineDemoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,8 +138,20 @@
 			children = (
 				F42C3FDE44CC844C7BBEDEA9 /* Pods-CombineDemo.debug.xcconfig */,
 				4B613100C11C898450E65C53 /* Pods-CombineDemo.release.xcconfig */,
+				762E5DDBBA258F59C2187405 /* Pods-CombineDemo-CombineDemoTests.debug.xcconfig */,
+				16DB11D8338DB709FEA50C04 /* Pods-CombineDemo-CombineDemoTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DF5F2C982523946B00009398 /* CombineDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				DF5F2C992523946B00009398 /* CombineDemoTests.swift */,
+				DF5F2C9B2523946B00009398 /* Info.plist */,
+				DF5F2CA12523961F00009398 /* SceneSpec.swift */,
+			);
+			path = CombineDemoTests;
 			sourceTree = "<group>";
 		};
 		DF7BD3ED251CFEF70090FD4A /* Movies */ = {
@@ -175,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				DFD767A42518EEDF00C9BD34 /* CombineDemo */,
+				DF5F2C982523946B00009398 /* CombineDemoTests */,
 				DFD767A32518EEDF00C9BD34 /* Products */,
 				B9A888F1C6FB9FE883E0B362 /* Pods */,
 				A6B2AC6727A1EAA2B1ED8865 /* Frameworks */,
@@ -185,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				DFD767A22518EEDF00C9BD34 /* CombineDemo.app */,
+				DF5F2C972523946B00009398 /* CombineDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,6 +306,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DF5F2C962523946B00009398 /* CombineDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF5F2CA02523946B00009398 /* Build configuration list for PBXNativeTarget "CombineDemoTests" */;
+			buildPhases = (
+				908EE002F486D4FD7C6F0345 /* [CP] Check Pods Manifest.lock */,
+				DF5F2C932523946B00009398 /* Sources */,
+				DF5F2C942523946B00009398 /* Frameworks */,
+				DF5F2C952523946B00009398 /* Resources */,
+				65793F79713CEEE10E023311 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF5F2C9D2523946B00009398 /* PBXTargetDependency */,
+			);
+			name = CombineDemoTests;
+			productName = CombineDemoTests;
+			productReference = DF5F2C972523946B00009398 /* CombineDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DFD767A12518EEDF00C9BD34 /* CombineDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFD767B62518EEE200C9BD34 /* Build configuration list for PBXNativeTarget "CombineDemo" */;
@@ -292,6 +355,10 @@
 				LastUpgradeCheck = 1170;
 				ORGANIZATIONNAME = "Glazed Solutions";
 				TargetAttributes = {
+					DF5F2C962523946B00009398 = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = DFD767A12518EEDF00C9BD34;
+					};
 					DFD767A12518EEDF00C9BD34 = {
 						CreatedOnToolsVersion = 11.7;
 					};
@@ -311,11 +378,19 @@
 			projectRoot = "";
 			targets = (
 				DFD767A12518EEDF00C9BD34 /* CombineDemo */,
+				DF5F2C962523946B00009398 /* CombineDemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DF5F2C952523946B00009398 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFD767A02518EEDF00C9BD34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -350,6 +425,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CombineDemo/Pods-CombineDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		65793F79713CEEE10E023311 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CombineDemo-CombineDemoTests/Pods-CombineDemo-CombineDemoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CombineDemo-CombineDemoTests/Pods-CombineDemo-CombineDemoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CombineDemo-CombineDemoTests/Pods-CombineDemo-CombineDemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		908EE002F486D4FD7C6F0345 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CombineDemo-CombineDemoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A2A10C69869FFE8349A41CC1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,6 +489,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DF5F2C932523946B00009398 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF5F2C9A2523946B00009398 /* CombineDemoTests.swift in Sources */,
+				DF5F2CA22523961F00009398 /* SceneSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFD7679E2518EEDF00C9BD34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,6 +533,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DF5F2C9D2523946B00009398 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFD767A12518EEDF00C9BD34 /* CombineDemo */;
+			targetProxy = DF5F2C9C2523946B00009398 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DFD767B02518EEE200C9BD34 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -422,6 +553,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DF5F2C9E2523946B00009398 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 762E5DDBBA258F59C2187405 /* Pods-CombineDemo-CombineDemoTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8Q6ZX2A8KJ;
+				INFOPLIST_FILE = CombineDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.glazedsolutions.CombineDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CombineDemo.app/CombineDemo";
+			};
+			name = Debug;
+		};
+		DF5F2C9F2523946B00009398 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16DB11D8338DB709FEA50C04 /* Pods-CombineDemo-CombineDemoTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8Q6ZX2A8KJ;
+				INFOPLIST_FILE = CombineDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.glazedsolutions.CombineDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CombineDemo.app/CombineDemo";
+			};
+			name = Release;
+		};
 		DFD767B42518EEE200C9BD34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -579,6 +752,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DF5F2CA02523946B00009398 /* Build configuration list for PBXNativeTarget "CombineDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF5F2C9E2523946B00009398 /* Debug */,
+				DF5F2C9F2523946B00009398 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DFD7679D2518EEDF00C9BD34 /* Build configuration list for PBXProject "CombineDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
