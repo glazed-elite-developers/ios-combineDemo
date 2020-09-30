@@ -41,20 +41,18 @@ final class MovieDetailViewController: UIViewController, ViewModelBindable {
         cancellables.forEach { $0.cancel() }
         cancellables.removeAll()
 
-        let output = viewModel.transform(loadMovie: self.loadMovie.eraseToAnyPublisher())
-        output.sink(receiveCompletion: { completion in
-            if case .failure(let apiError) = completion {
-                self.setUI(for: .error(apiError))
-            }
-        }, receiveValue: { state in
+        // Unlike the previous scene, here we're going to listen to a `@Published` property to update the UI
+        self.viewModel.$state.sink { state in
             self.setUI(for: state)
-        }).store(in: &cancellables)
+        }.store(in: &cancellables)
+        
+        viewModel.bindPublisher(loadMovie: loadMovie.eraseToAnyPublisher())
         
     }
 
     private func setUI(for state: MovieDetailViewModel.State) {
         switch state {
-        case .loading:
+        case .loading, .initial:
             self.subtitleLabel.isHidden = true
             self.errorLabel.isHidden = true
             self.titleLabel.isHidden = true

@@ -7,27 +7,49 @@
 //
 
 import Combine
+import UIKit
 
-struct MovieDetailViewModel: RouterBindable {
+final class MovieDetailViewModel: RouterBindable {
 
     var router: MovieDetailRouter!
     let moviesAPI: MoviesAPI
     let movieId: Int
 
+    private var cancellables: [AnyCancellable] = []
+
+    init(router: MovieDetailRouter, moviesAPI: MoviesAPI, movieId: Int) {
+        self.router = router
+        self.moviesAPI = moviesAPI
+        self.movieId = movieId
+        self.state = .initial
+    }
+
     enum State {
+        case initial
         case loading
         case results(MovieViewData)
         case error(APIError)
     }
 
-    func transform(loadMovie: AnyPublisher<Int, APIError>) -> AnyPublisher<State, APIError> {
+    // Just for the sake of using a different approach, unlike the previous scene, here we're going to use a `@Published` property to update the view controller...
+    // ... which has the side-effect of obligating this ViewModel to be a class instead.
+    @Published var state: State
+
+    func bindPublisher(loadMovie: AnyPublisher<Int, APIError>) {
         let resultsPublisher = loadMovie.flatMap({ self.moviesAPI.sendAlamofireRequest(for: MovieDetailsResource(movieId: $0)) })
             .map { result -> State in
                 return .results(MovieViewData.mapMovieToMovieViewData(movie: result))
         }.eraseToAnyPublisher()
 
         let loadingPublisher = loadMovie.map{ _ in State.loading }.eraseToAnyPublisher()
-        return Publishers.Merge(loadingPublisher, resultsPublisher).removeDuplicates().eraseToAnyPublisher()
+        let mergedPublishers = Publishers.Merge(loadingPublisher, resultsPublisher).removeDuplicates().eraseToAnyPublisher()
+        mergedPublishers.sink(receiveCompletion: { completion in
+            if case .failure(let apiError) = completion {
+                self.state = .error(apiError)
+            }
+        }, receiveValue: { state in
+            self.state = state
+            }).store(in: &cancellables)
     }
 }
 
