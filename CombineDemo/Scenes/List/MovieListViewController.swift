@@ -12,7 +12,6 @@ import Combine
 struct MovieListInput {
     let popularMovies: AnyPublisher<Void, APIError>
     let search: AnyPublisher<String, APIError>
-    let selected: AnyPublisher<Int, Never>
 }
 
 final class MovieListViewController: UIViewController, ViewModelBindable {
@@ -58,9 +57,11 @@ final class MovieListViewController: UIViewController, ViewModelBindable {
         cancellables.forEach { $0.cancel() }
         cancellables.removeAll()
 
+        let debouncedSearch = self.search.debounce(for: .milliseconds(500),
+                                                   scheduler: DispatchQueue.main)
+
         let input = MovieListInput(popularMovies: self.mostPopular.eraseToAnyPublisher(),
-                                   search: self.search.eraseToAnyPublisher(),
-                                   selected: self.selected.eraseToAnyPublisher())
+                                   search: debouncedSearch.eraseToAnyPublisher())
         let output = viewModel.transform(input: input)
         output.sink(receiveCompletion: { completion in
             if case .failure(let apiError) = completion {
@@ -69,6 +70,8 @@ final class MovieListViewController: UIViewController, ViewModelBindable {
         }, receiveValue: { state in
             self.setUI(for: state)
         }).store(in: &cancellables)
+
+        viewModel.bindSelectionPublisher(selectionPublisher: self.selected.eraseToAnyPublisher())
     }
 
     private func setUI(for state: MovieListViewModel.State) {

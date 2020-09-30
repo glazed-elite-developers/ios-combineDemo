@@ -6,7 +6,6 @@
 //  Copyright © 2020 Glazed Solutions. All rights reserved.
 //
 
-import UIKit
 import Combine
 
 final class MovieListViewModel: RouterBindable {
@@ -30,12 +29,6 @@ final class MovieListViewModel: RouterBindable {
 
 
     func transform(input: MovieListInput) -> AnyPublisher<State, APIError> {
-        cancellables.forEach { $0.cancel() }
-        cancellables.removeAll()
-        input.selected.sink(receiveValue: { [unowned self] movieId in
-            self.moveToMovieDetail(movieId: movieId)
-        })
-            .store(in: &cancellables)
 
         let popularLoading = input.popularMovies.map { _ in State.loading }
             .eraseToAnyPublisher()
@@ -49,7 +42,6 @@ final class MovieListViewModel: RouterBindable {
             .eraseToAnyPublisher()
 
         let search = input.search
-            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
             .removeDuplicates()
             .filter({ !$0.isEmpty })
             .flatMap({ self.moviesAPI.search(query: $0) })
@@ -60,6 +52,16 @@ final class MovieListViewModel: RouterBindable {
         let loadingPublishers = Publishers.Merge(popularLoading, searchLoading).removeDuplicates().eraseToAnyPublisher()
         let resultPublishers = Publishers.Merge(popularMovies, search).removeDuplicates().eraseToAnyPublisher()
         return Publishers.Merge(loadingPublishers, resultPublishers).removeDuplicates().eraseToAnyPublisher()
+    }
+
+    func bindSelectionPublisher(selectionPublisher: AnyPublisher<Int, Never>) {
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
+        selectionPublisher.sink(receiveValue: { [unowned self] movieId in
+            self.moveToMovieDetail(movieId: movieId)
+        })
+            .store(in: &cancellables)
+
     }
 
     private func moveToMovieDetail(movieId: Int) {
