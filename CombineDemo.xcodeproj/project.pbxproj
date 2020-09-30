@@ -47,6 +47,7 @@
 		DFD767DA251B92B000C9BD34 /* MovieListScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD767D9251B92B000C9BD34 /* MovieListScene.storyboard */; };
 		DFD767DE251BBB2A00C9BD34 /* MovieListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD767DD251BBB2A00C9BD34 /* MovieListRouter.swift */; };
 		DFD767E0251BBB6300C9BD34 /* RouterBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD767DF251BBB6300C9BD34 /* RouterBindable.swift */; };
+		DFF5A8FC2525281400D89EDC /* MovieListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF5A8FB2525281400D89EDC /* MovieListViewModelSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		DFD767D9251B92B000C9BD34 /* MovieListScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieListScene.storyboard; sourceTree = "<group>"; };
 		DFD767DD251BBB2A00C9BD34 /* MovieListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRouter.swift; sourceTree = "<group>"; };
 		DFD767DF251BBB6300C9BD34 /* RouterBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterBindable.swift; sourceTree = "<group>"; };
+		DFF5A8FB2525281400D89EDC /* MovieListViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModelSpec.swift; sourceTree = "<group>"; };
 		F42C3FDE44CC844C7BBEDEA9 /* Pods-CombineDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CombineDemo.debug.xcconfig"; path = "Target Support Files/Pods-CombineDemo/Pods-CombineDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 				DF5F2C9B2523946B00009398 /* Info.plist */,
 				DF5F2CA12523961F00009398 /* SceneSpec.swift */,
 				DF7710012524CEF4005E716D /* MovieDetailViewModelSpec.swift */,
+				DFF5A8FB2525281400D89EDC /* MovieListViewModelSpec.swift */,
 			);
 			path = CombineDemoTests;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 			files = (
 				DF7710022524CEF4005E716D /* MovieDetailViewModelSpec.swift in Sources */,
 				DF5F2C9A2523946B00009398 /* CombineDemoTests.swift in Sources */,
+				DFF5A8FC2525281400D89EDC /* MovieListViewModelSpec.swift in Sources */,
 				DF5F2CA22523961F00009398 /* SceneSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

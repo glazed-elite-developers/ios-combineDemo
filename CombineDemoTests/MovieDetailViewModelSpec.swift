@@ -15,6 +15,8 @@ import CombineDemo
 
 final class MovieDetailViewModelSpec: QuickSpec {
 
+    typealias State = MovieDetailViewModel.State
+
     override func spec() {
 
         var sceneFactory: SceneFactory!
@@ -24,7 +26,7 @@ final class MovieDetailViewModelSpec: QuickSpec {
         var mockMovie: Movie!
         var cancellables: [AnyCancellable] = []
 
-        var stateStack: [MovieDetailViewModel.State] = []
+        var stateStack: [State] = []
 
         beforeEach {
             appContext = AppContext.mock()
@@ -32,14 +34,14 @@ final class MovieDetailViewModelSpec: QuickSpec {
             router = MovieDetailRouter(appRouter: appContext.appRouter,
                                      sceneFactory: sceneFactory)
             let mockAPI = MockMoviesAPIModel()
-            mockMovie = mockAPI.movieArray.first!
+            mockMovie = mockAPI.popularMovieArray.first!
             moviesModel = mockAPI
         }
 
         describe("Movie Detail View Model") {
             it("Should update the state properly") {
                 let viewModel = MovieDetailViewModel(router: router, moviesAPI: moviesModel, movieId: 1)
-                let expectedResultState = MovieDetailViewModel.State.results(MovieViewData.mapMovieToMovieViewData(movie: mockMovie))
+                let expectedResultState = State.results(MovieViewData.mapMovieToMovieViewData(movie: mockMovie))
 
                 let loadMovie = PassthroughSubject<Int, APIError>()
                 viewModel.bindPublisher(loadMovie: loadMovie.eraseToAnyPublisher())
@@ -50,7 +52,7 @@ final class MovieDetailViewModelSpec: QuickSpec {
 
                 loadMovie.send(1)
                 expect(stateStack).toNot(beEmpty())
-                expect(stateStack.first!).to(equal(MovieDetailViewModel.State.initial))
+                expect(stateStack.first!).to(equal(State.initial))
                 expect(stateStack.last!).to(equal(expectedResultState))
 
             }
