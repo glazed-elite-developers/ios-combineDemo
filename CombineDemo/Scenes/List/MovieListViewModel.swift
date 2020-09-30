@@ -12,9 +12,9 @@ import Combine
 final class MovieListViewModel: RouterBindable {
 
     var router: MovieListRouter!
-    let moviesAPI: TheMovieDBModel
+    let moviesAPI: MoviesAPIModel
 
-    private var disposables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     enum State {
         case loading
@@ -23,19 +23,19 @@ final class MovieListViewModel: RouterBindable {
     }
 
 
-    init(router: MovieListRouter, moviesAPI: TheMovieDBModel) {
+    init(router: MovieListRouter, moviesAPI: MoviesAPIModel) {
         self.router = router
         self.moviesAPI = moviesAPI
     }
 
 
     func transform(input: MovieListInput) -> AnyPublisher<State, APIError> {
-        disposables.forEach { $0.cancel() }
-        disposables.removeAll()
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
         input.selected.sink(receiveValue: { [unowned self] movieId in
             self.moveToMovieDetail(movieId: movieId)
         })
-            .store(in: &disposables)
+            .store(in: &cancellables)
 
         let popularLoading = input.popularMovies.map { _ in State.loading }
             .eraseToAnyPublisher()

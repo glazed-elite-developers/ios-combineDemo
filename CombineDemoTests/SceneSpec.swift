@@ -16,10 +16,7 @@ final class SceneSpec: QuickSpec {
     override func spec() {
         describe("Scene creation") {
             describe("View Controllers") {
-                guard let appContext = AppContext.mock() else {
-                    fail("Should have an AppContext")
-                    return
-                }
+                let appContext = AppContext.mock()
                 let factory = CombineDemoSceneFactory(context: appContext)
                 context("Movie List") {
                     let scene = MovieListScene()
@@ -55,10 +52,8 @@ final class SceneSpec: QuickSpec {
 extension AppContext {
 
     /// A mock AppContext for testing purposes
-    public static func mock() -> AppContext? {
-        guard let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first else {
-            return nil
-        }
+    public static func mock() -> AppContext {
+        let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first!
         return AppContext(appRouter: AppRouter(window: window))
     }
 }

@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct MovieList: Codable {
-    let results: [Movie]
-}
-
 final class MostPopularResource: APIResource {
     typealias Response = MovieList
 

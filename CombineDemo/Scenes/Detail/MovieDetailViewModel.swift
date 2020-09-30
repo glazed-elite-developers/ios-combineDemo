@@ -12,12 +12,12 @@ import UIKit
 final class MovieDetailViewModel: RouterBindable {
 
     var router: MovieDetailRouter!
-    let moviesAPI: TheMovieDBModel
+    let moviesAPI: MoviesAPIModel
     let movieId: Int
 
     private var cancellables: [AnyCancellable] = []
 
-    init(router: MovieDetailRouter, moviesAPI: TheMovieDBModel, movieId: Int) {
+    init(router: MovieDetailRouter, moviesAPI: MoviesAPIModel, movieId: Int) {
         self.router = router
         self.moviesAPI = moviesAPI
         self.movieId = movieId
@@ -36,12 +36,13 @@ final class MovieDetailViewModel: RouterBindable {
     @Published var state: State
 
     func bindPublisher(loadMovie: AnyPublisher<Int, APIError>) {
+        let loadingPublisher = loadMovie.map{ _ in State.loading }.eraseToAnyPublisher()
+
         let resultsPublisher = loadMovie.flatMap({ self.moviesAPI.getMovieDetail(movieId: $0) })
             .map { result -> State in
                 return .results(MovieViewData.mapMovieToMovieViewData(movie: result))
         }.eraseToAnyPublisher()
 
-        let loadingPublisher = loadMovie.map{ _ in State.loading }.eraseToAnyPublisher()
         let mergedPublishers = Publishers.Merge(loadingPublisher, resultsPublisher).removeDuplicates().eraseToAnyPublisher()
         mergedPublishers.sink(receiveCompletion: { completion in
             if case .failure(let apiError) = completion {
@@ -56,6 +57,7 @@ final class MovieDetailViewModel: RouterBindable {
 extension MovieDetailViewModel.State: Equatable {
     static func == (lhs: MovieDetailViewModel.State, rhs: MovieDetailViewModel.State) -> Bool {
         switch (lhs, rhs) {
+        case (.initial, .initial): return true
         case (.loading, .loading): return true
         case (.error, .error): return true
         case (.results(let lhsMovie), .results(let rhsMovie)): return lhsMovie == rhsMovie

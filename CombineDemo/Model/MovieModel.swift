@@ -20,6 +20,10 @@ struct Movie: Codable {
 
 }
 
+struct MovieList: Codable {
+    let results: [Movie]
+}
+
 extension Movie: Hashable {
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         return lhs.id == rhs.id

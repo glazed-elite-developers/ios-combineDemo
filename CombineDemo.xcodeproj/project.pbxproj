@@ -12,8 +12,8 @@
 		DF5F2C9A2523946B00009398 /* CombineDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F2C992523946B00009398 /* CombineDemoTests.swift */; };
 		DF5F2CA22523961F00009398 /* SceneSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F2CA12523961F00009398 /* SceneSpec.swift */; };
 		DF770FFC2524C693005E716D /* MoviesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF770FFB2524C693005E716D /* MoviesAPIModel.swift */; };
-		DF770FFF2524CD42005E716D /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F2251D021D0090FD4A /* MovieModel.swift */; };
-		DF7710002524CD55005E716D /* MoviesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF770FFB2524C693005E716D /* MoviesAPIModel.swift */; };
+		DF7710022524CEF4005E716D /* MovieDetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7710012524CEF4005E716D /* MovieDetailViewModelSpec.swift */; };
+		DF7710082524DCBF005E716D /* MockMoviesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7710072524DCBF005E716D /* MockMoviesAPIModel.swift */; };
 		DF7BD3EF251CFF0F0090FD4A /* MostPopularResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3EE251CFF0F0090FD4A /* MostPopularResource.swift */; };
 		DF7BD3F1251D01AB0090FD4A /* TheMovieDBAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F0251D01AB0090FD4A /* TheMovieDBAPIClient.swift */; };
 		DF7BD3F3251D021D0090FD4A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F2251D021D0090FD4A /* MovieModel.swift */; };
@@ -70,6 +70,8 @@
 		DF5F2C9B2523946B00009398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF5F2CA12523961F00009398 /* SceneSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneSpec.swift; sourceTree = "<group>"; };
 		DF770FFB2524C693005E716D /* MoviesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPIModel.swift; sourceTree = "<group>"; };
+		DF7710012524CEF4005E716D /* MovieDetailViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModelSpec.swift; sourceTree = "<group>"; };
+		DF7710072524DCBF005E716D /* MockMoviesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoviesAPIModel.swift; sourceTree = "<group>"; };
 		DF7BD3EE251CFF0F0090FD4A /* MostPopularResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularResource.swift; sourceTree = "<group>"; };
 		DF7BD3F0251D01AB0090FD4A /* TheMovieDBAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBAPIClient.swift; sourceTree = "<group>"; };
 		DF7BD3F2251D021D0090FD4A /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				DF5F2C992523946B00009398 /* CombineDemoTests.swift */,
 				DF5F2C9B2523946B00009398 /* Info.plist */,
 				DF5F2CA12523961F00009398 /* SceneSpec.swift */,
+				DF7710012524CEF4005E716D /* MovieDetailViewModelSpec.swift */,
 			);
 			path = CombineDemoTests;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				DFD767CE251B916C00C9BD34 /* APIClient.swift */,
 				DFD767D0251B917600C9BD34 /* APIResource.swift */,
 				DFD767D2251B919600C9BD34 /* APIError.swift */,
+				DF7710072524DCBF005E716D /* MockMoviesAPIModel.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -506,8 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF770FFF2524CD42005E716D /* MovieModel.swift in Sources */,
-				DF7710002524CD55005E716D /* MoviesAPIModel.swift in Sources */,
+				DF7710022524CEF4005E716D /* MovieDetailViewModelSpec.swift in Sources */,
 				DF5F2C9A2523946B00009398 /* CombineDemoTests.swift in Sources */,
 				DF5F2CA22523961F00009398 /* SceneSpec.swift in Sources */,
 			);
@@ -520,6 +523,7 @@
 				DF7BD3FD251E21D60090FD4A /* SearchResource.swift in Sources */,
 				DFD767A62518EEDF00C9BD34 /* AppDelegate.swift in Sources */,
 				DFD767BE251A497E00C9BD34 /* Scene.swift in Sources */,
+				DF7710082524DCBF005E716D /* MockMoviesAPIModel.swift in Sources */,
 				DFD767C0251A49AC00C9BD34 /* AppContext.swift in Sources */,
 				DF7BD3F9251D04EC0090FD4A /* MovieViewData.swift in Sources */,
 				DFD767DE251BBB2A00C9BD34 /* MovieListRouter.swift in Sources */,
