@@ -12,7 +12,7 @@ import Combine
 final class MovieListViewModel: RouterBindable {
 
     var router: MovieListRouter!
-    let moviesAPI: MoviesAPI
+    let moviesAPI: TheMovieDBModel
 
     private var disposables = Set<AnyCancellable>()
 
@@ -23,7 +23,7 @@ final class MovieListViewModel: RouterBindable {
     }
 
 
-    init(router: MovieListRouter, moviesAPI: MoviesAPI) {
+    init(router: MovieListRouter, moviesAPI: TheMovieDBModel) {
         self.router = router
         self.moviesAPI = moviesAPI
     }
@@ -40,7 +40,7 @@ final class MovieListViewModel: RouterBindable {
         let popularLoading = input.popularMovies.map { _ in State.loading }
             .eraseToAnyPublisher()
 
-        let popularMovies = input.popularMovies.flatMap({ self.moviesAPI.sendAlamofireRequest(for: MostPopularResource()) })
+        let popularMovies = input.popularMovies.flatMap({ self.moviesAPI.getPopularMovies() })
             .map( { result -> State in
                 return .results(result.results.map { MovieViewData.mapMovieToMovieViewData(movie: $0)})
             }).eraseToAnyPublisher()
@@ -52,7 +52,7 @@ final class MovieListViewModel: RouterBindable {
             .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
             .removeDuplicates()
             .filter({ !$0.isEmpty })
-            .flatMap({ self.moviesAPI.sendAlamofireRequest(for: SearchResource(query: $0)) })
+            .flatMap({ self.moviesAPI.search(query: $0) })
             .map( { result -> State in
                 return .results(result.results.map { MovieViewData.mapMovieToMovieViewData(movie: $0)})
             }).eraseToAnyPublisher()

@@ -60,7 +60,7 @@ struct MovieListScene: Scene {
 
     var viewModel: ViewModelFactory = { router, context in
         MovieListViewModel(router: router,
-                           moviesAPI: context.moviesAPI)
+                           moviesAPI: context.moviesAPIModel)
     }
 }
 
@@ -77,7 +77,7 @@ struct MovieDetailScene: Scene {
     init(movieId: Int) {
         self.viewModel = { router, context in
             MovieDetailViewModel(router: router,
-                                 moviesAPI: context.moviesAPI,
+                                 moviesAPI: context.moviesAPIModel,
                                  movieId: movieId)
         }
     }

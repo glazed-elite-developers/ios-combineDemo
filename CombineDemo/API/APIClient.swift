@@ -24,14 +24,14 @@ protocol APIClient {
     ///   - resource: APIResource defining some remote resource.
     /// - Returns: AnyPublisher for the corresponding resource, or nil.
 
-    func sendRequest<T: APIResource>(for resource: T) -> AnyPublisher<T.Response, APIError>
+    func sendStandardURLSessionRequest<T: APIResource>(for resource: T) -> AnyPublisher<T.Response, APIError>
 
     func sendAlamofireRequest<T: APIResource>(for resource: T) -> AnyPublisher<T.Response, APIError>
 }
 
 extension APIClient {
 
-    func sendRequest<T: APIResource>(for resource: T) -> AnyPublisher<T.Response, APIError> {
+    func sendStandardURLSessionRequest<T: APIResource>(for resource: T) -> AnyPublisher<T.Response, APIError> {
 
         guard let request = resource.buildRequest(withBaseUrl: URL(string: self.baseUrl)) else {
             print("Bad url")

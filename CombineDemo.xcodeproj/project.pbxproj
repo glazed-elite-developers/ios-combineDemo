@@ -11,8 +11,11 @@
 		7A4CC5CBFC1E5E4A519D62FF /* Pods_CombineDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0C9FC98545832F5E9F916D /* Pods_CombineDemo.framework */; };
 		DF5F2C9A2523946B00009398 /* CombineDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F2C992523946B00009398 /* CombineDemoTests.swift */; };
 		DF5F2CA22523961F00009398 /* SceneSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F2CA12523961F00009398 /* SceneSpec.swift */; };
+		DF770FFC2524C693005E716D /* MoviesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF770FFB2524C693005E716D /* MoviesAPIModel.swift */; };
+		DF770FFF2524CD42005E716D /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F2251D021D0090FD4A /* MovieModel.swift */; };
+		DF7710002524CD55005E716D /* MoviesAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF770FFB2524C693005E716D /* MoviesAPIModel.swift */; };
 		DF7BD3EF251CFF0F0090FD4A /* MostPopularResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3EE251CFF0F0090FD4A /* MostPopularResource.swift */; };
-		DF7BD3F1251D01AB0090FD4A /* MoviesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F0251D01AB0090FD4A /* MoviesAPI.swift */; };
+		DF7BD3F1251D01AB0090FD4A /* TheMovieDBAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F0251D01AB0090FD4A /* TheMovieDBAPIClient.swift */; };
 		DF7BD3F3251D021D0090FD4A /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F2251D021D0090FD4A /* MovieModel.swift */; };
 		DF7BD3F5251D03420090FD4A /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF7BD3F4251D03420090FD4A /* MovieCell.xib */; };
 		DF7BD3F7251D035B0090FD4A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7BD3F6251D035B0090FD4A /* MovieCell.swift */; };
@@ -66,8 +69,9 @@
 		DF5F2C992523946B00009398 /* CombineDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineDemoTests.swift; sourceTree = "<group>"; };
 		DF5F2C9B2523946B00009398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF5F2CA12523961F00009398 /* SceneSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneSpec.swift; sourceTree = "<group>"; };
+		DF770FFB2524C693005E716D /* MoviesAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPIModel.swift; sourceTree = "<group>"; };
 		DF7BD3EE251CFF0F0090FD4A /* MostPopularResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularResource.swift; sourceTree = "<group>"; };
-		DF7BD3F0251D01AB0090FD4A /* MoviesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPI.swift; sourceTree = "<group>"; };
+		DF7BD3F0251D01AB0090FD4A /* TheMovieDBAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBAPIClient.swift; sourceTree = "<group>"; };
 		DF7BD3F2251D021D0090FD4A /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		DF7BD3F4251D03420090FD4A /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		DF7BD3F6251D035B0090FD4A /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -154,16 +158,23 @@
 			path = CombineDemoTests;
 			sourceTree = "<group>";
 		};
-		DF7BD3ED251CFEF70090FD4A /* Movies */ = {
+		DF770FFE2524CB9C005E716D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DF7BD3F2251D021D0090FD4A /* MovieModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DF7BD3ED251CFEF70090FD4A /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
 				DF7BD3EE251CFF0F0090FD4A /* MostPopularResource.swift */,
-				DF7BD3F0251D01AB0090FD4A /* MoviesAPI.swift */,
-				DF7BD3F2251D021D0090FD4A /* MovieModel.swift */,
 				DF7BD3FC251E21D60090FD4A /* SearchResource.swift */,
 				DF7BD3FE251E298A0090FD4A /* MovieDetailsResource.swift */,
+				DF7BD3F0251D01AB0090FD4A /* TheMovieDBAPIClient.swift */,
 			);
-			path = Movies;
+			path = MovieDB;
 			sourceTree = "<group>";
 		};
 		DF7BD400251E2EF30090FD4A /* Detail */ = {
@@ -235,6 +246,7 @@
 		DFD767A42518EEDF00C9BD34 /* CombineDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DF770FFE2524CB9C005E716D /* Model */,
 				DF7BD40D25224E5A0090FD4A /* Resources */,
 				DF7BD40A25224D980090FD4A /* Resource Utils */,
 				DFD767CD251B915C00C9BD34 /* API */,
@@ -295,7 +307,8 @@
 		DFD767CD251B915C00C9BD34 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				DF7BD3ED251CFEF70090FD4A /* Movies */,
+				DF770FFB2524C693005E716D /* MoviesAPIModel.swift */,
+				DF7BD3ED251CFEF70090FD4A /* MovieDB */,
 				DFD767CE251B916C00C9BD34 /* APIClient.swift */,
 				DFD767D0251B917600C9BD34 /* APIResource.swift */,
 				DFD767D2251B919600C9BD34 /* APIError.swift */,
@@ -493,6 +506,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF770FFF2524CD42005E716D /* MovieModel.swift in Sources */,
+				DF7710002524CD55005E716D /* MoviesAPIModel.swift in Sources */,
 				DF5F2C9A2523946B00009398 /* CombineDemoTests.swift in Sources */,
 				DF5F2CA22523961F00009398 /* SceneSpec.swift in Sources */,
 			);
@@ -517,11 +532,12 @@
 				DFD767E0251BBB6300C9BD34 /* RouterBindable.swift in Sources */,
 				DF7BD3F3251D021D0090FD4A /* MovieModel.swift in Sources */,
 				DFD767C2251A69E800C9BD34 /* MovieListViewController.swift in Sources */,
+				DF770FFC2524C693005E716D /* MoviesAPIModel.swift in Sources */,
 				DF7BD404251E2F280090FD4A /* MovieDetailViewController.swift in Sources */,
 				DF7BD3F7251D035B0090FD4A /* MovieCell.swift in Sources */,
 				DF7BD408251E2F4A0090FD4A /* MovieDetailRouter.swift in Sources */,
 				DF7BD406251E2F370090FD4A /* MovieDetailViewModel.swift in Sources */,
-				DF7BD3F1251D01AB0090FD4A /* MoviesAPI.swift in Sources */,
+				DF7BD3F1251D01AB0090FD4A /* TheMovieDBAPIClient.swift in Sources */,
 				DFD767C6251B53DA00C9BD34 /* SceneRouter.swift in Sources */,
 				DF7BD3FF251E298A0090FD4A /* MovieDetailsResource.swift in Sources */,
 				DFD767C8251B556800C9BD34 /* AppRouter.swift in Sources */,

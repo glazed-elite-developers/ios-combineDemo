@@ -12,12 +12,12 @@ import UIKit
 final class MovieDetailViewModel: RouterBindable {
 
     var router: MovieDetailRouter!
-    let moviesAPI: MoviesAPI
+    let moviesAPI: TheMovieDBModel
     let movieId: Int
 
     private var cancellables: [AnyCancellable] = []
 
-    init(router: MovieDetailRouter, moviesAPI: MoviesAPI, movieId: Int) {
+    init(router: MovieDetailRouter, moviesAPI: TheMovieDBModel, movieId: Int) {
         self.router = router
         self.moviesAPI = moviesAPI
         self.movieId = movieId
@@ -36,7 +36,7 @@ final class MovieDetailViewModel: RouterBindable {
     @Published var state: State
 
     func bindPublisher(loadMovie: AnyPublisher<Int, APIError>) {
-        let resultsPublisher = loadMovie.flatMap({ self.moviesAPI.sendAlamofireRequest(for: MovieDetailsResource(movieId: $0)) })
+        let resultsPublisher = loadMovie.flatMap({ self.moviesAPI.getMovieDetail(movieId: $0) })
             .map { result -> State in
                 return .results(MovieViewData.mapMovieToMovieViewData(movie: result))
         }.eraseToAnyPublisher()

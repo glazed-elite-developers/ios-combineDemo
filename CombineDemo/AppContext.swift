@@ -10,10 +10,10 @@ import Foundation
 
 struct AppContext {
     let appRouter: AppRouter
-    let moviesAPI: MoviesAPI
+    let moviesAPIModel: TheMovieDBModel
 
     init(appRouter: AppRouter) {
         self.appRouter = appRouter
-        self.moviesAPI = MoviesAPI()
+        self.moviesAPIModel = TheMovieDBModel()
     }
 }
