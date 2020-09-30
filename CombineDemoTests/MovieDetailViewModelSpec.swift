@@ -24,6 +24,8 @@ final class MovieDetailViewModelSpec: QuickSpec {
         var mockMovie: Movie!
         var cancellables: [AnyCancellable] = []
 
+        var stateStack: [MovieDetailViewModel.State] = []
+
         beforeEach {
             appContext = AppContext.mock()
             sceneFactory = CombineDemoSceneFactory(context: appContext)
@@ -37,16 +39,20 @@ final class MovieDetailViewModelSpec: QuickSpec {
         describe("Movie Detail View Model") {
             it("Should update the state properly") {
                 let viewModel = MovieDetailViewModel(router: router, moviesAPI: moviesModel, movieId: 1)
-                let expectedState = MovieDetailViewModel.State.results(MovieViewData.mapMovieToMovieViewData(movie: mockMovie))
+                let expectedResultState = MovieDetailViewModel.State.results(MovieViewData.mapMovieToMovieViewData(movie: mockMovie))
 
                 let loadMovie = PassthroughSubject<Int, APIError>()
                 viewModel.bindPublisher(loadMovie: loadMovie.eraseToAnyPublisher())
 
-                loadMovie.send(1)
-
                 viewModel.$state.sink { state in
-                    expect(state).to(equal(expectedState))
+                    stateStack.append(state)
                 }.store(in: &cancellables)
+
+                loadMovie.send(1)
+                expect(stateStack).toNot(beEmpty())
+                expect(stateStack.first!).to(equal(MovieDetailViewModel.State.initial))
+                expect(stateStack.last!).to(equal(expectedResultState))
+
             }
         }
     }
